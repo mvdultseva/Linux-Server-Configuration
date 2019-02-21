@@ -22,15 +22,23 @@ ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
     - Install Apache application and wsgi module:
             `sudo apt-get install apache2`
             `sudo apt-get install python-setuptools libapache2-mod-wsgi`
+    - Create an Apache config file `/etc/apache2/sites-enabled/000-default.conf`. Add the following line at the end of the `<VirtualHost *:80>` block, right before the closing `</VirtualHost>` line: `WSGIScriptAlias / /var/www/catalog_app/catalog_app.wsgi`
     - Install and configure PostgreSQL:
             `sudo apt-get install postgresql postgresql-contrib`
-            create a new database user named `catalog`
+            Create database named `catalog` for the user `catalog` 
     - Installing git:
              `sudo apt-get install git`
-6. Deploy app
+6. Deploy the app
     - Clone app `https://github.com/mvdultseva/catalog_app.git` to the directory /var/www/catalog_app
-    - Add catalog_app.wsgi file
-    - Run `sudo nano catalog.wsgi`
+    - Add catalog_app.wsgi file. The configuration file can be seen on the `catalog_app.wsgi` file included in the repository 
+    - In order to run application you have to create Python virtual environment and install all packages from the `requirements.txt`:
+        a. Create virtual environment: python3 -m venv catalog_app/venv3
+        b. Activate virtual environment: source catalog_app/venv3/bin/activate
+        c. Install all dependencies: pip install -r requirements.txt
+        d. Change the `engine` inside application: `engine = create_engine(postgresql://catalog:123@localhost/catalog)`
+        e. Set up the DB with python `/var/www/catalog_app/catalog_app/database_setup.py`
+7. Restart Apache:
+    Run `sudo service apache2 restart`
 
 ## All installed software: 
     `requirements.txt`
