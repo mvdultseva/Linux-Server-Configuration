@@ -1,11 +1,12 @@
 ## Installed software: 
-    PostgreSQL==9.5.14
-    Apache==2.4.18
-    libapache2-mod-wsgi-py3
-    git version 2.7.4
+   PostgreSQL==9.5.14
+   Apache==2.4.18
+   libapache2-mod-wsgi-py3
+   git version 2.7.4
     
 ## Connect to server
 Server address: http://54.213.7.56.xip.io/
+
 Port: 2200
 
 ## Connect to grader
