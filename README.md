@@ -1,11 +1,11 @@
-## Connect to server:
+## Connect to server
 Server address: http://54.213.7.56.xip.io/
 
-## Connect to grader:
+## Connect to grader
 Download and save "id_rsa"
 ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
 
-## Configuration steps:
+## Configuration steps
       1. Create an instance in AWS Lightsail
       2. Set up your SSH key
       3. Secure your server:
@@ -37,9 +37,9 @@ ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
             
 
 
-## All installed software: 
+## All installed software `requirements.txt`
       
-## Third-Party resources used to complete this project:
+## Third-Party resources used to complete this project
     - https://www.digitalocean.com/
     - https://www.sqlalchemy.org/
     - http://flask.pocoo.org/
