@@ -1,42 +1,48 @@
-1.  IP address: 54.213.7.56  Port 2200
-2. http://54.213.7.56/
-3. All installed software:
-      PostgreSQL==9.5.14
-      Apache/2.4.18
-      libapache2-mod-wsgi-py3
-      git version 2.7.4
-      bleach==3.0.2
-      certifi==2018.11.29
-      chardet==3.0.4
-      Click==7.0
-      Flask==1.0.2
-      Flask-HTTPAuth==3.2.4
-      Flask-SQLAlchemy==2.3.2
-      httplib2==0.12.0
-      idna==2.8
-      itsdangerous==1.1.0
-      Jinja2==2.10
-      MarkupSafe==1.1.0
-      oauth2client==4.1.3
-      packaging==18.0
-      passlib==1.7.1
-      pkg-resources==0.0.0
-      psycopg2==2.7.7
-      pyasn1==0.4.4
-      pyasn1-modules==0.2.2
-      pyparsing==2.3.0
-      redis==3.0.1
-      requests==2.21.0
-      rsa==4.0
-      six==1.12.0
-      SQLAlchemy==1.2.15
-      urllib3==1.24.1
-      virtualenv==15.0.1
-      webencodings==0.5.1
-      Werkzeug==0.14.1
- 4. https://www.digitalocean.com/
-    https://www.sqlalchemy.org/
-    http://flask.pocoo.org/
-    https://modwsgi.readthedocs.io/en/develop/
-    https://stackoverflow.com/
-    https://www.postgresql.org/
+## Connect to server:
+Server address: http://54.213.7.56.xip.io/
+
+## Connect to grader:
+Download and save "id_rsa"
+ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
+
+## Configuration steps:
+      1. Create an instance in AWS Lightsail
+      2. Set up your SSH key
+      3. Secure your server:
+            * Update all currently installed packages
+            * Change port 22 to port 2200
+            * Setup UFW (Uncomplicated Firewall):
+                  Only allow incoming request from port 2200(SSH), port 80 (HTTP) and port 123 (NTP)
+      4. Create a new user called grader and give an access:
+            * Run `sudo adduser grader` to create a new user called `grader`
+            * Give `grader` the permission to `sudo`
+            * Create an SSH key(s) for a `grader` user with `ssh-keygen` in your local machine
+      5. Prepare to deploy app:
+            * Set up local time zone to UTC
+            * Install Apache application and wsgi module:
+                  `sudo apt-get install apache2`
+                  `sudo apt-get install python-setuptools libapache2-mod-wsgi`
+            * Install and configure PostgreSQL:
+                  `sudo apt-get install postgresql postgresql-contrib`
+                  create a new database user named `catalog`
+            * Installing git:
+                  `sudo apt-get install git`
+      6. Deploy app
+            * Clone app `https://github.com/mvdultseva/catalog_app.git` to the directory /var/www/catalog_app
+            * Add catalog_app.wsgi file
+            * Run `sudo nano catalog.wsgi`
+
+
+
+            
+
+
+## All installed software: 
+      
+## Third-Party resources used to complete this project:
+    - https://www.digitalocean.com/
+    - https://www.sqlalchemy.org/
+    - http://flask.pocoo.org/
+    - https://modwsgi.readthedocs.io/en/develop/
+    - https://stackoverflow.com/
+    - https://www.postgresql.org/
