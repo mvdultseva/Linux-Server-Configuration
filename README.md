@@ -1,5 +1,12 @@
+## Installed software: 
+    PostgreSQL==9.5.14
+    Apache==2.4.18
+    libapache2-mod-wsgi-py3
+    git version 2.7.4
+    
 ## Connect to server
 Server address: http://54.213.7.56.xip.io/
+Port: 2200
 
 ## Connect to grader
 Download and save "id_rsa"
@@ -32,16 +39,20 @@ ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
     - Clone app `https://github.com/mvdultseva/catalog_app.git` to the directory /var/www/catalog_app
     - Add catalog_app.wsgi file. The configuration file can be seen on the `catalog_app.wsgi` file included in the repository 
     - In order to run application you have to create Python virtual environment and install all packages from the `requirements.txt`:
-        a. Create virtual environment: python3 -m venv catalog_app/venv3
-        b. Activate virtual environment: source catalog_app/venv3/bin/activate
-        c. Install all dependencies: pip install -r requirements.txt
+    
+        a. Create virtual environment: `python3 -m venv catalog_app/venv3`
+        
+        b. Activate virtual environment: `source catalog_app/venv3/bin/activate`
+        
+        c. Install all dependencies: `pip install -r requirements.txt`
+        
         d. Change the `engine` inside application: `engine = create_engine(postgresql://catalog:123@localhost/catalog)`
+        
         e. Set up the DB with python `/var/www/catalog_app/catalog_app/database_setup.py`
+        
 7. Restart Apache:
     Run `sudo service apache2 restart`
 
-## All installed software: 
-    `requirements.txt`
 ## Third-Party resources used to complete this project
     - https://www.digitalocean.com/
     - https://www.sqlalchemy.org/
