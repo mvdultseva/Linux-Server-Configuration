@@ -37,7 +37,7 @@ ssh grader@54.213.7.56 -p 2200 -i <path to id_rsa file>
             
 
 
-## All installed software `requirements.txt`
+## All installed software: `requirements.txt`
       
 ## Third-Party resources used to complete this project
     - https://www.digitalocean.com/
